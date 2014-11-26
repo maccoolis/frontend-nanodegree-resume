@@ -147,7 +147,7 @@ function displayWork() {
 		var formattedYearsWorked = HTMLworkDates.replace("%data%",work.jobs[job].yearsworked);
 		$(".work-entry:last").append(formattedYearsWorked);
 
-		var formattedDesc = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+		var formattedDesc = HTMLworkDescription.replace("%data%",work.jobposition[job].description);
 		$(".work-entry:last").append(formattedDesc);	
 	}
 
