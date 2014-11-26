@@ -2,7 +2,7 @@ var bio ={
 			"name": name,
 			"age": "45",	
 			"skills": ["JS","programming","Github","HTML","CSS"],
-			"contactinfo": {
+			"contacts": {
 				"mobile": "07900399399",
 				"email": "hillsidecmp@gmail.com",
 				"location": "Lichfield UK"
@@ -12,40 +12,43 @@ var bio ={
 };
 
 var work= {
-	"roles": [
+	"jobs": [
 		{
 			"jobposition":"Head of IM&T",
 			"employer": "Ofwat",
-			"yearsworked":"8",
-			"city":"London"
+			"yearsworked":"Aug 2006-Oct 2014",
+			"location":"London",
+			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
 		},
 		{
 			"jobposition": "Head of Sys Dev",
 			"employer": "Ofwat",
-			"yearsworked":"6",
-			"city":"Birmingham"
+			"yearsworked":"Jan 1998-Jul 2006",
+			"location":"Birmingham",
+			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
 		},
 		{
 			"jobposition": "Software developer",
 			"employer": "Ofwat",
-			"yearsworked": "5",
-			"city": "Birmingham"
+			"yearsworked": "Jan 1993-Jun 2006",
+			"location": "Birmingham",
+			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
 		}
 	]
-}
+};
 
 var education = {
 	"schools": [
 		{
 			"name": "Lancaster University",
-			"city": "Lancaster",
+			"location": "Lancaster",
 			"major": "BA Hons",
 			"gradyear": "1990",
 			"url": "htttp://"
 		},
 		{
 			"name": "Chase Terrace High School",
-			"city": "Burntwood",
+			"location": "Burntwood",
 			"major": "5 A Levels",
 			"gradyear": "1987",
 			"url": "htttp://"
@@ -74,35 +77,137 @@ var education = {
 			"url": "https://www.udacity.com/"
 		}	
 	]
-}
+};
 
 
 var projects = {
 	"project": [
 		{
-			"name": "iPad and iPhone deployment",
+			"title": "iPad and iPhone deployment",
 			"description": "Implemented CESG secure iPads and iPhones to 200 people.",
-			"duration": "2"
+			"dates": "2010-13"
 		},
 		{
-			"name": "Hyper-V virtualisation",
+			"title": "Hyper-V virtualisation",
 			"description": "Managed the migration to a virtualised server environment",
-			"duration": "1.5"
+			"dates": "2013-14"
 		}
 	]
-}
+};
 
-
-
-
-
-/* These were lines used when learning via the course
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x,y);
+});	
 
 var name = "Carl Poulton";
 var role = "Web developer";
 
 var formattedName = HTMLheaderName.replace("%data%",name);
 var formattedRole = HTMLheaderRole.replace("%data%",role);
+
+$("#header").append(formattedName);
+$("#header").append(formattedRole);
+
+
+
+displaySkills();
+
+displayWork();
+
+function displaySkills() {
+	
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+		$("#skills").append(formattedSkill);
+		formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+		$("#skills").append(formattedSkill);
+		formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+		$("#skills").append(formattedSkill);
+		formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
+		$("#skills").append(formattedSkill);
+	}
+}
+
+function displayWork() {
+
+	for (job in work.roles) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+
+		var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].jobposition);
+
+		var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
+
+		var formattedEmployerTitle = formattedEmployer+formattedTitle;
+		$(".work-entry:last").append(formattedEmployerTitle);
+
+		var formattedYearsWorked = HTMLworkDates.replace("%data%",work.jobs[job].yearsworked);
+		$(".work-entry:last").append(formattedYearsWorked);
+
+		var formattedDesc = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+		$(".work-entry:last").append(formattedDesc);	
+	}
+
+}
+
+projects.display = function() {
+	for (project in projects.project) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedTitle = HTMLprojectTitle.replace("%data%",projects.project[project].title);
+		$(".project-entry:last").append(formattedTitle);
+
+		var formattedDescription = HTMLprojectDescription.replace("%data%",projects.project[project].description);
+		$(".project-entry:last").append(formattedDescription);
+
+		var formattedDates = HTMLprojectDates.replace("%data%",projects.project[project].dates);
+		$(".project-entry:last").append(formattedDates);
+	}
+}
+
+projects.display();
+
+function inName(name) {
+
+    name = name.split(" ");
+    console.log(name);
+    name[1] = name[1].toUpperCase();
+    name[0] = name[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
+    name = name.join(" ");    
+   
+    return name;
+
+}
+
+$("#main").append(internationalizeButton);
+$("#mapDiv").append(googleMap);
+
+//************************************************************************************************************
+
+/*function locationizer(work) {
+	var locations =[];
+	for (job in work.roles) {
+		locations.push(work.roles[job].city)
+	}
+	return locations;
+}
+
+console.log(locationizer(work));
+
+
+These were lines used when learning via the course
+
+var name = "Carl Poulton";
+var role = "Web developer";
+
+var formattedName = HTMLheaderName.replace("%data%",name);
+var formattedRole = HTMLheaderRole.replace("%data%",role);
+
+    newHTML = newHTML.replace(/<findtext>/g,<replacetext>); replace all matches in string
+
 
 $("#main").append(formattedName);
 $("#main").append(formattedRole);
