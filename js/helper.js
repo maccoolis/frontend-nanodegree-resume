@@ -47,7 +47,7 @@ var HTMLschoolName = "<a href='#'>%data%";
 var HTMLschoolDegree = " -- %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br>Major: %data%</em>"
+var HTMLschoolMajor = "<p><br>Major: %data%</p>"
 
 var HTMLonlineClasses = "<h3>Online Classes</h3>";
 var HTMLonlineTitle = "<a href='#'>%data%";
@@ -68,7 +68,6 @@ $(document).ready(function() {
     $('#name').html(iName);  
   });
 })
-
 
 
 /*
@@ -139,8 +138,8 @@ function initializeMap() {
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
     }
-
     return locations;
+
   }
 
   /*
@@ -167,13 +166,14 @@ function initializeMap() {
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: "<div id=\"mapMarker\">" + name + "</div>"
+      //content: "<div id=\"mapMarker\">" + name + "</div>"
+      content: name
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
-      infoWindow.open(map,marker);
+      //infoWindow.open(map,marker);
     });
 
     // this is where the pin actually gets added to the map.
