@@ -53,21 +53,21 @@ var work= {
 			"employer": "Ofwat",
 			"dates":"Aug 2006-Oct 2014",
 			"location":"London",
-			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
+			"description": "Working as the strategic lead for all technology teams and projects."
 		},
 		{
 			"jobposition": "Head of Sys Dev",
 			"employer": "Ofwat",
 			"dates":"Jan 1998-Jul 2006",
 			"location":"Birmingham",
-			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
+			"description": "Managing and technically leading on all open source and proprietary systems."
 		},
 		{
 			"jobposition": "Software developer",
 			"employer": "Ofwat",
 			"dates": "Jan 1993-Jun 2006",
 			"location": "Leicester",
-			"description": "kzlkdsckdsmckdsmcklmdscmkds skd aslkjcijlskaj lcjlckj a jsak jsajcl ksajljasljdslkjlkasjlksaj claskjl"
+			"description": "Developing the financial model and supporting tools to set price limits in England and Wales"
 		}
 	]
 };
