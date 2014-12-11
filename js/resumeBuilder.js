@@ -3,8 +3,7 @@ $(document).click(function(loc) {
  var x = loc.pageX;
  var y = loc.pageY;
  logClicks(x,y);
-}); 
-
+});
 
 // Header and contact information ------------------------------------------------------------------------
 var bio ={
@@ -21,7 +20,6 @@ var bio ={
    "bioPic": "./images/fry.jpg",
    "welcomeMessage": "Welcome to my resume"
 };
-
 
 var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
 var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
@@ -77,13 +75,10 @@ function displayWork() {
  for (job in work.jobs) {
   $("#workExperience").append(HTMLworkStart);
   var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-
   var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].jobposition);
-
   var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
-
+  
   var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
   $(".work-entry:last").append(formattedEmployerTitle);
 
   var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
@@ -92,7 +87,6 @@ function displayWork() {
   var formattedDesc = HTMLworkDescription.replace("%data%",work.jobs[job].description);
   $(".work-entry:last").append(formattedDesc); 
  }
-
 }
 
 displayWork();
@@ -310,7 +304,7 @@ $("#main").append(funthoughts);
 /* This code for testing string manipulation
 var s = "audacity";
 
-var udacityizer = function(s) {  
+var udacityizer = function(s) {
     // Right now, the variable s === "audacity"
     // Manipulate s to make it equal to "Udacity"
     // Your code goes here!
